@@ -1,0 +1,301 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Updated font family */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('/public/assests/img/commercial.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-title {
+    font-size: 24px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #3498db;
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Services Section */
+.services {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-item {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.service-item h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin: 15px 0 10px;
+}
+
+.service-item p {
+    padding: 0 15px 15px;
+    color: #555;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Additional Content Styles */
+section {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h3 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin: 15px 0;
+}
+
+section p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Centering Bullet Points */
+section ul {
+    list-style-type: disc;  /* Sets the bullet style */
+    padding-left: 0;       /* Removes default padding */
+    display: inline-block;  /* Centers the bullet points */
+    text-align: center;     /* Centers text in the list */
+}
+
+section ul li {
+    text-align: center;     /* Center aligns the text of the list item */
+    margin: 10px 0;        /* Add spacing between items */
+}
+
+/* Footer Styles */
+footer {
+    background: #2c3e50;
+    color: #FFEB55;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+footer .footer-column {
+    width: 30%;
+    padding: 10px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+    color: #FFEB55;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #FFEB55;
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+footer .social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+footer .social-icons a:hover {
+    color: #FFEB55;
+}
+
+footer .newsletter {
+    text-align: center;
+}
+
+footer input[type="email"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+footer button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #D91656;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer button[type="submit"]:hover {
+    background-color: #EE66A6;
+}
+
+footer .copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    footer .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Popup Button Styles */
+.popup-content button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background: #e74c3c;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.popup-content button:hover {
+    background-color: #3498db;
+}

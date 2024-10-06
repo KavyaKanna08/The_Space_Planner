@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - The Space Planner</title>
+    <link rel="stylesheet" href="assests/css/styles.css">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('assests/img/interior-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: #fff;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-title {
+            font-size: 24px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Container for Pricing Information */
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            max-width: 1200px; /* Set a maximum width */
+            width: 100%; /* Full width */
+            padding: 20px; /* Added padding for better spacing */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 8px; /* Rounded corners for the container */
+            text-align: center; /* Center text in the container */
+        }
+
+        .container h2 {
+            width: 100%; /* Full width for the title */
+            margin-bottom: 20px; /* Space below the title */
+            color: #333; /* Title color */
+        }
+
+        .section {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            width: calc(25% - 30px); /* Four sections per row with margins */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center content inside each section */
+            position: relative; /* To allow positioning of price */
+        }
+
+        .item-container {
+            width: 100%; /* Make the item container full width of section */
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items */
+        }
+
+        .pricing-button {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .price-display {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2c3e50; /* Change color for visibility */
+            font-size: 1.2rem; /* Increase font size */
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #2c3e50;
+            color: #FFEB55;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        footer .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 80%;
+        }
+
+        footer .footer-column {
+            width: 30%;
+            padding: 10px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+            color: #FFEB55;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer ul li a:hover {
+            color: #FFEB55;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #FFEB55;
+        }
+
+        footer .newsletter {
+            text-align: center;
+        }
+
+        footer input[type="email"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        footer button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #D91656;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer button[type="submit"]:hover {
+            background-color: #EE66A6;
+        }
+
+        footer .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            footer .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .section {
+                width: 100%; /* Each section width adjusts for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="assests/img/logo.png" alt="Company Logo">
+        </div>
+        <h1 class="header-title">The Space Planner</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="price.html">Our Prices</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" id="pricing-container">
+            <h2>Our Pricing Plans</h2> <!-- Title added here -->
+            <!-- Sections will be populated by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Column 1: Quick Links -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="price.html">Our Prices</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Social Media Links -->
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 3: Newsletter Subscription -->
+            <div class="footer-column newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get the latest deals and offers directly in your inbox!</p>
+                <form action="subscription.html" method="get">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 The Space Planner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data for the categories
+        const livePrices = {
+            villas: [
+                { name: 'Luxury Villa', price: 300000, img: '/public/assests/img/luxuryvilla.jpg' },
+                { name: 'Modern Villa', price: 250000, img: '/public/assests/img/modrenvilla.jpg' },
+            ],
+            flats: [
+                { name: '2BHK Flat', price: 100000, img: '/public/assests/img/2bhk.jpg' },
+                { name: '3BHK Flat', price: 120000, img: '/public/assests/img/3bhk.jpg' },
+            ],
+            rooms: [
+                { name: 'Single Room', price: 50000, img: '/public/assests/img/singleroom.jpg' },
+                { name: 'Double Room', price: 70000, img: '/public/assests/img/doubleroom.jpg' },
+            ],
+        };
+
+        // Function to create a pricing section
+        function createPricingSection(category, items) {
+            const section = document.createElement('div');
+            section.className = 'section';
+
+            const title = document.createElement('h2');
+            title.textContent = category;
+
+            section.appendChild(title);
+
+            items.forEach(item => {
+                const itemContainer = document.createElement('div');
+                itemContainer.className = 'item-container';
+
+                const itemImage = document.createElement('img');
+                itemImage.src = item.img;
+                itemImage.alt = item.name;
+                itemImage.style.width = '100%';
+                itemImage.style.borderRadius = '5px';
+
+                const itemName = document.createElement('p');
+                itemName.textContent = item.name;
+
+                const priceDisplay = document.createElement('div');
+                priceDisplay.className = 'price-display';
+                priceDisplay.textContent = `Starting at $${item.price}`;
+
+                const inputField = document.createElement('input');
+                inputField.type = 'number';
+                inputField.placeholder = 'Enter square feet';
+                inputField.style.marginTop = '10px';
+                inputField.style.width = '100%';
+                inputField.style.padding = '5px';
+
+                const button = document.createElement('button');
+                button.className = 'pricing-button';
+                button.textContent = 'Calculate Total';
+                button.onclick = () => {
+                    const area = parseFloat(inputField.value);
+                    if (!isNaN(area)) {
+                        const totalCost = item.price * area;
+                        alert(`Total cost for ${area} square feet: $${totalCost}`);
+                    } else {
+                        alert('Please enter a valid number for square feet.');
+                    }
+                };
+
+                itemContainer.appendChild(itemImage);
+                itemContainer.appendChild(itemName);
+                itemContainer.appendChild(priceDisplay);
+                itemContainer.appendChild(inputField);
+                itemContainer.appendChild(button);
+
+                section.appendChild(itemContainer);
+            });
+
+            return section;
+        }
+
+        // Main function to render pricing information
+        async function renderPricing() {
+            const pricingContainer = document.getElementById('pricing-container');
+
+            Object.entries(livePrices).forEach(([category, items]) => {
+                const section = createPricingSection(category, items);
+                pricingContainer.appendChild(section);
+            });
+        }
+
+        // Initialize the rendering of pricing
+        renderPricing();
+    </script>
+
+</body>
+</html>

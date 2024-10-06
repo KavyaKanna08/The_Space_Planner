@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Visualizations - The Space Planner</title>
+    <style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('assests/img/interior-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+ main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #2c3e50;
+            color: #fff;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-title {
+            font-size: 24px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Main Content */
+        .visualization-main {
+            width: 100%;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .visualization-content {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .visualization-content h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #2c3e50;
+        }
+
+        .visualization-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+/* 3D Image Gallery */
+.visualization-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.visualization-gallery .image-container {
+    width: calc(33.333% - 20px); /* 3 images per row */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 300px; /* Set a fixed height for uniform appearance */
+}
+
+.visualization-gallery .image-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    object-position: center; /* Centers the image within the container */
+}
+
+/* For tablets (2 images per row) */
+@media (max-width: 768px) {
+    .visualization-gallery .image-container {
+        width: calc(50% - 20px); /* 2 images per row on tablets */
+    }
+}
+
+/* For mobile devices (1 image per row) */
+@media (max-width: 480px) {
+    .visualization-gallery .image-container {
+        width: 100%; /* 1 image per row on mobile */
+    }
+}
+
+
+        /* Footer Styles */
+        footer {
+            background: #2c3e50;
+            color: #FFEB55;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        footer .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 80%;
+        }
+
+        footer .footer-column {
+            width: 30%;
+            padding: 10px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+            color: #FFEB55;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer ul li a:hover {
+            color: #FFEB55;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #FFEB55;
+        }
+
+        footer .newsletter {
+            text-align: center;
+        }
+
+        footer input[type="email"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        footer button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #D91656;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer button[type="submit"]:hover {
+            background-color: #EE66A6;
+        }
+
+        footer .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            footer .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            footer .footer-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="/assests/img/logo.png" alt="Company Logo">
+        </div>
+        <h1 class="header-title">The Space Planner</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="price.html">Our Prices</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="visualization-main" style="background-image: url('3d_background.jpg'); background-size: cover; background-position: center;">
+        <section class="visualization-content">
+            <h2>3D Visualizations</h2>
+            <p>At The Space Planner, our 3D visualization services give you a realistic preview of your future space. See how your designs will look in a lifelike environment before any construction begins.</p>
+
+            <!-- 3D Image Gallery -->
+             
+            <div class="visualization-gallery">
+                <div class="image-container">
+                    <img src="assests/img/3d_design1.jpg" alt="3D Visualization 1">
+                </div>
+                <div class="image-container">
+                    <img src="assests/img/3d_image2.jpg" alt="3D Visualization 2">
+                </div>
+                <div class="image-container">
+                    <img src="assests/img/3d_image3.jpg" alt="3D Visualization 3">
+                </div>
+                <div class="image-container">
+                    <img src="assests/img/3d_image4.jpg" alt="3D Visualization 3">
+                </div>
+                <div class="image-container">
+                    <img src="assests/img/3d_image5.jpg" alt="3D Visualization 3">
+                </div>
+                <div class="image-container">
+                    <img src="assests/img/3d_image6.jpg" alt="3D Visualization 3">
+                </div>
+                <div class="image-container">
+                    <img src="assests/img/3d_image7.jpg" alt="3D Visualization 3">
+                </div>
+                <div class="image-container">
+                    <img src="assests/img/3d_image8.jpg" alt="3D Visualization 3">
+                </div>
+                <div class="image-container">
+                    <img src="/assests/img/3d_image9.jpg" alt="3D Visualization 3">
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- Popup for Book Now -->
+<div id="popup" class="popup" style="display:none;">  <!-- Set initial display to none -->
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2>If you want this design, book now!</h2>
+        <button onclick="redirectToBookNow()">Book now</button>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="price.html">Our Prices</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column newsletter">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get the latest deals and offers directly in your inbox!</p>
+                <form action="subscription.html" method="get">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 The Space Planner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assests\js\newscript.js"></script>
+</body>
+</html>
